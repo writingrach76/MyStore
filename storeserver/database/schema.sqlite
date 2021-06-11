@@ -13,12 +13,11 @@ CREATE TABLE Inventory(
 CREATE TABLE Store_transaction(
     trans_id INTEGER PRIMARY KEY AUTOINCREMENT,
     trans_date INTEGER,
-    trans_total DOUBLE, 
+    trans_total DOUBLE 
     );
 
 CREATE TABLE Transaction_items(
-    ti_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    store_transation INTEGER FOREIGN KEY
+    ti_id INTEGER PRIMARY KEY AUTOINCREMENT
     );
 
 .exit
