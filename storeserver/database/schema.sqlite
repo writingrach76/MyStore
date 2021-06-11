@@ -10,13 +10,15 @@ CREATE TABLE Inventory(
     item_taxable BOOL
     );
 
-CREATE TABLE Transaction(
+CREATE TABLE Store_transaction(
     trans_id INTEGER PRIMARY KEY AUTOINCREMENT,
     trans_date INTEGER,
     trans_total DOUBLE, 
     );
 
 CREATE TABLE Transaction_items(
+    ti_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    store_transation INTEGER FOREIGN KEY
     );
 
 .exit
