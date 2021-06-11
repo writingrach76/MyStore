@@ -8,4 +8,4 @@ then
         rm $DB_NAME
 fi
 
-cat $SCHEMA_FILE | sqlite3 -batch $DB_NAME
+sqlite3 -batch $DB_NAME $(cat $SCHEMA_FILE)
