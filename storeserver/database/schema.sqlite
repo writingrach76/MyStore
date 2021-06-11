@@ -1,6 +1,7 @@
 CREATE TABLE Inventory(
     item_id INTEGER PRIMARY KEY AUTOINCREMENT,
     item_name CHAR(50),
+    item_upc INTEGER,
     item_cost DOUBLE,
     item_count INTEGER,
     item_recieved INTEGER,

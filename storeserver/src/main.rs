@@ -7,5 +7,10 @@ fn index() -> &'static str {
 
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index])
+    rocket::build().mount("/", routes![index, item])
+}
+
+#[get("/item/<id>")]
+fn item(id:i32) -> i32 {
+    12
 }
