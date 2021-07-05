@@ -1,7 +1,6 @@
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -51,6 +50,7 @@ public class Item {
 
             if (conn.getResponseCode() != 200) {
                 System.err.println("failed to get item");
+                conn.disconnect();
                 return null;
             }
 
@@ -63,6 +63,7 @@ public class Item {
                 response.append(line);
                 response.append("\n");
             }
+            conn.disconnect();
 
             String body = response.toString();
             if (body.equals("")){

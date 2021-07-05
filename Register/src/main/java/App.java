@@ -50,7 +50,7 @@ public class App {
                 String supc = in.nextLine();
                 System.out.println("upc: " + supc);
                 int upc = Integer.parseInt(supc);
-                Item temp = findDummy(upc);
+                Item temp = findItem(upc);
                 if (temp != null) {
                     _itms.add(temp);
                     subTotal += temp.getCost();
