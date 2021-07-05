@@ -1,0 +1,2 @@
+INSERT INTO Inventory (item_name, item_upc, item_cost, item_count, item_received, item_sold, item_onSale, item_salePrice, item_taxable) VALUES("apple", 1111, 1.12, 50, 50, 0, FALSE, 112, TRUE)
+

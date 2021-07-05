@@ -4,7 +4,7 @@ CREATE TABLE Inventory(
     item_upc INTEGER,
     item_cost DOUBLE,
     item_count INTEGER,
-    item_recieved INTEGER,
+    item_received INTEGER,
     item_sold INTEGER,
     item_onSale BOOL,
     item_salePrice DOUBLE,
