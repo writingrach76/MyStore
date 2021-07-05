@@ -1,0 +1,7 @@
+Eggs	 	 1.99
+1234Test Item	 	 1.0
+1111Chocolate Bar	 	 0.99
+1235
+ Subtotal 3.98
+ Sales Tax: 0.00
+ Total: 3.98
