@@ -42,8 +42,9 @@ public class App {
      */
     public static Item findItem(int upc)
     {
-        Item i = findDummy(upc);
-        return i;
+        //Item i = findDummy(upc);
+        //return i;
+        return Item.fromUPC(upc);
     }
 
     public static Item findDummy(int upc)
