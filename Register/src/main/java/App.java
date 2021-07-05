@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.File;
 
 public class App {
     private static ArrayList<Item> _itms = new ArrayList<Item>();
@@ -7,6 +10,7 @@ public class App {
 
     public static void main(String args[])
     {
+        /*
         boolean finishedScanning = false;
         int temp = 0;
         do {
@@ -17,8 +21,71 @@ public class App {
         }while(!finishedScanning);
 
         d.textDisplay(_itms);
+    */
+        beginScanning();
 
     }
+
+    public static void beginScanning()
+    {
+        System.out.println("Scanning!");
+        File purchase = new File("Purchase.txt");
+        Scanner in;
+        try {
+            in = new Scanner(purchase);
+        }
+        catch(IOException e)
+            {
+                System.out.println("Scanner Error");
+                e.printStackTrace();
+                in = new Scanner(System.in);
+            }
+
+        try{
+            FileWriter fw = new FileWriter("Receipt.txt");
+            double subTotal = 0.0, tax = 0.0, salesTax = 0.06;
+
+            while (in.hasNextLine()) {
+                System.out.println("Scanner connection successful");
+                String supc = in.nextLine();
+                System.out.println("upc: " + supc);
+                int upc = Integer.parseInt(supc);
+                Item temp = findDummy(upc);
+                if (temp != null) {
+                    _itms.add(temp);
+                    subTotal += temp.getCost();
+                    if (temp.isTaxable()) {
+                        tax += (temp.getCost() * salesTax);
+                    }
+                    fw.write(temp.toString());
+
+                }
+            }
+
+                fw.write(String.format("\n Subtotal %.2f", subTotal));
+                fw.write(String.format("\n Sales Tax: %.2f", tax));
+                fw.write(String.format("\n Total: %.2f", (tax+subTotal)));
+                fw.close();
+                in.close();
+                System.out.println("end scanning!");
+
+        }
+        catch(IOException e)
+        {
+           System.out.println("FileWriter Error");
+        }
+    }
+
+    public static void displayText()
+    {
+        Scanner in = new Scanner("Receipt.txt");
+        while(in.hasNext())
+        {
+            System.out.println(in.nextLine());
+        }
+        in.close();
+    }
+
 
     public static void getItem()
     {
